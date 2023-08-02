@@ -1,16 +1,8 @@
-function Main(props){
-
-    let contador = 0
-
-    const handleClick = () => {
-        contador ++
-        console.log(contador)
-    }
+function Main(){
 
     return(
-        <main className="p-2 grow">
-            <p>contador : {contador}</p>
-            <button onClick={handleClick}>click</button>
+        <main className="p-5 grow">
+            <h2>Bienvenido!</h2>
         </main>
     )
 }
