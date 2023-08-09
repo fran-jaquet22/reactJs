@@ -1,4 +1,4 @@
-function IconoCart (){
+function CartWidget (){
     return(
         <div>
             <i className="material-icons">shopping_bag</i>
@@ -6,4 +6,4 @@ function IconoCart (){
         </div>
     )
 }
-export default IconoCart
+export default CartWidget
