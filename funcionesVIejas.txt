@@ -1,0 +1,29 @@
+function Main(){
+    
+    const [show, setShow] = useState(false)
+
+    const toogleMenu = ()=>{
+        setShow(!show)
+    }
+
+    if(show){
+        return(
+            <main className="p-5 grow">
+                <button onClick={toogleMenu} className="border p-2">toogle</button>
+                <Contador/>
+            </main>
+        )
+    }else{
+        return(
+            <main className="p-5 grow">
+                <button onClick={toogleMenu} className="border p-2">toogle</button>
+                <ul>
+                    <li>home</li>
+                    <li>menu</li>
+                    <li>contacto</li>
+                </ul>
+                <Contador/>
+            </main>
+        )
+    }
+}

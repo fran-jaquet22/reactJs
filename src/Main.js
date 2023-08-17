@@ -1,10 +1,24 @@
-function Main(){
+import { useState } from "react"
+import Contador from "./components/Contador"
+import Form from "./components/Form"
 
+function Main(){
+    
+    const [dark, setDark] = useState(false)
+
+    const toogleDark = ()=>{
+        setDark(!dark)
+    }
+ 
     return(
-        <main className="p-5 grow">
-            <h2> Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure incidunt, eos maxime facere itaque voluptatum, necessitatibus quam suscipit est nesciunt fuga esse quae minus a mollitia, voluptatibus magnam voluptas nostrum.</h2>
+        <main className={dark ? "p-2 grow bg-slate-600 text-white" : "p-2 grow bg-white"}>
+            <button onClick={toogleDark} className="border p-2">modo oscuro/claro</button>
+            <Contador/>
+            <hr />
+            <Form/>
         </main>
     )
 }
+
 
 export default Main
