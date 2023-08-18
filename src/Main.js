@@ -1,21 +1,16 @@
-import { useState } from "react"
-import Contador from "./components/Contador"
-import Form from "./components/Form"
+import { Routes, Route } from "react-router-dom"
+import Container from "./components/Container"
 
 function Main(){
-    
-    const [dark, setDark] = useState(false)
-
-    const toogleDark = ()=>{
-        setDark(!dark)
-    }
  
     return(
-        <main className={dark ? "p-2 grow bg-slate-600 text-white" : "p-2 grow bg-white"}>
-            <button onClick={toogleDark} className="border p-2">modo oscuro/claro</button>
-            <Contador/>
-            <hr />
-            <Form/>
+        <main className={"p-2 grow bg-pink-950 text-white"}>
+            {/* <Container/> */}
+            <Routes>
+                <Route path="/" element={<Container/>}/>
+                <Route path="/cat/:category" element={<Container/>}/>
+                <Route path="/carrito" element={<p>Carrito</p>}/>
+            </Routes>
         </main>
     )
 }
