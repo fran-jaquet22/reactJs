@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react"
 import Presentacional from "./Presentacional"
 import { useParams } from "react-router-dom"
+import { getProducts, getProductsByCategory} from "../asynkMock"
 
 function Container() {
 
     const [data, setData] = useState([])
 
+    const {categoryId} = useParams()
+
     useEffect(()=>{
-
-        getProductos(setData)
-
-    },[])
-    const getProductos = ()=>{
-        fetch(`https://fakestoreapi.com/products`)
-            .then(res=>res.json())
-            .then(json=>setData(json))
-    }
+        const asyncFunc = categoryId ? getProductsByCategory : getProducts
+        
+        asyncFunc(categoryId)
+        .then(res => {
+            setData(res)
+        }) 
+        .catch(error=>{
+            console.error(error)
+        })   
+    }, [categoryId])
 
     return (
         <Presentacional data={data}/>

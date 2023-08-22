@@ -4,12 +4,13 @@ import CartWidget from "./CartWidget"
 function NavLinks (){
     return(
         <nav className="">
-            <NavLink className="p-2" to="/cat/jewelery">categoria 1</NavLink>
-            <NavLink className="p-2 mx-2" to="/cat/electronics">categoria 2</NavLink>
-            <NavLink className="p-2 mx-2" to="/cat/3">categoria 3</NavLink>
-            <NavLink className="p-2 mr-2" to="/cat/4">categoria 4</NavLink>
+            <NavLink ClassName={({isActive})=> isActive ? `ActiveOption p-2 mx-2` : `Option p-2 mx-2`} to={'/category/Merienda'}  >Merienda</NavLink>
+            <NavLink className={({isActive})=> isActive ? `ActiveOption p-2 mx-2` : `Option p-2 mx-2`} to={'/category/Evento'}>Eventos</NavLink>
+            <NavLink className={({isActive})=> isActive ? `ActiveOption p-2 mx-2` : `Option p-2 mx-2`} to={'/category/Frutal'}>Frutales</NavLink>
             <CartWidget/>
         </nav>
     )
     }
 export default NavLinks
+
+/* p-2 mx-2 */
