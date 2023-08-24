@@ -8,9 +8,9 @@ function Presentacional(props) {
                 return(
                     <article key={i} className="border-2 border-zinc-900 rounded-md card shadow-2xl p-4 hover:scale-105 transition duration-150">
                         <h2 className="h-30 p-5 uppercase">{item.title}</h2>
-                        <img className="h-72 pb-5" src={item.img} alt="" />
-                        <h3 className="">${item.price}</h3>
-                        <Link className="inset-x-0 bottom-0 mt-6 h-14 w-28 bg-lime-900" to={`/prod/${item.id}`}>Ver detalles</Link>
+                        <img className="h-72 pb-2" src={item.img} alt="" />
+                        <h3 className="my-4">${item.price}</h3>
+                        <Link className="inset-x-0 bottom-0 py-2 px-2 h-14 w-28 bg-lime-900 rounded hover:bg-lime-950" to={`/prod/${item.id}`}>Ver detalles</Link>
                     </article>
                 )
             })}
