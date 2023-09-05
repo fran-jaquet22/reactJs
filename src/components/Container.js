@@ -16,7 +16,7 @@ function Container() {
 
         const productosCollection = collection(db, "productos")
         const laConsulta = getDocs(productosCollection)
-        laConsulta
+        /* laConsulta
             .then(
                 (resultado)=>{
                     console.log(resultado.docs[0].id)
@@ -24,10 +24,10 @@ function Container() {
                 })
                 .catch((error)=>{
                     console.log("dio mla")
-                })
+                }) */
 
             
-
+ 
         const asyncFunc = categoryId ? getProductsByCategory : getProducts
         
         asyncFunc(categoryId)
