@@ -6,7 +6,7 @@ import Carrito from "./components/Carrito"
 function Main(){
  
     return(
-        <main className={"p-2 h-screen grow bg-pink-950 text-white"}>
+        <main className="p-2 h-auto grow bg-pink-950 text-white">
             <Routes>
                 <Route path="/" element={<Container/>}/>
                 <Route path="/prod/:itemId" element={<DetallesProducto/>}/>
