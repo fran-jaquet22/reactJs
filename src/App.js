@@ -3,6 +3,7 @@ import Header from "./Header"
 import Main from "./Main"
 import Footer from "./Footer"
 import MiProvider from "./components/Conexto";
+import "../src/components/db/migrations"
 
 
 function App() {

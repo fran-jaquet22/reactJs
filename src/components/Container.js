@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Presentacional from "./Presentacional"
 import { useParams } from "react-router-dom"
 import { getProducts, getProductsByCategory} from "../asynkMock"
-import { db } from "./firebase"
+import { db } from "./db/firebase"
 import { getDocs, collection } from "firebase/firestore"
 
 
@@ -23,7 +23,7 @@ function Container() {
                     console.log(resultado.docs[0].data())
                 })
                 .catch((error)=>{
-                    console.log("dio mla")
+                    console.log("dio mal")
                 }) */
 
             
