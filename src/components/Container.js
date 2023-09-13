@@ -3,7 +3,7 @@ import Presentacional from "./Presentacional"
 import { useParams } from "react-router-dom"
 import { getProducts, getProductsByCategory} from "../asynkMock"
 import { db } from "./db/firebase"
-import { getDocs, collection } from "firebase/firestore"
+import { getDocs, collection, query, where } from "firebase/firestore"
 
 
 function Container() {
@@ -14,16 +14,27 @@ function Container() {
 
     useEffect(()=>{
 
-        const productosCollection = collection(db, "productos")
-        const laConsulta = getDocs(productosCollection)
-        /* laConsulta
+        /* const productosCollection = collection(db, "productos")
+        const filtroPorCategory = query(
+            productosCollection,
+            where("category","==","Merienda")
+        )
+
+
+
+        const laConsulta = getDocs(filtroPorCategory)
+        laConsulta
             .then(
                 (resultado)=>{
-                    console.log(resultado.docs[0].id)
-                    console.log(resultado.docs[0].data())
+                   const aux = resultado.docs.map((doc)=>{
+                    const producto = doc.data()
+                    producto.id = doc.id
+                    return producto
+                   })
+                   setData(aux)
                 })
                 .catch((error)=>{
-                    console.log("dio mal")
+                    console.log("dio mal", error)
                 }) */
 
             
