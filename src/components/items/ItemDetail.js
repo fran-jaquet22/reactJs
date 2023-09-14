@@ -1,19 +1,3 @@
-import { collection, getDoc, doc } from "firebase/firestore";
-import { db } from "./db/firebase";
-
-/* const productosCollection = collection(db, "productos")
-
-const referenciaDelDocumento = doc(productosCollection, "4yCRpA2UE7UuTnbJsHLF")
-
-const consulta = getDoc(referenciaDelDocumento)
-consulta
-    .then((res)=>{
-        console.log("todo ok",res)
-        console.log(res.data())
-    })
-    .catch((err)=>{
-        console.log(err)
-    }) */
 
 const ItemDetail = ({ title, img, category, description, price }) => {
     return (
@@ -32,6 +16,9 @@ const ItemDetail = ({ title, img, category, description, price }) => {
                 <p className="">Categoría: {category}</p>
                 <p className="">Descripción: {description}</p>
                 <p className="">Precio: ${price}</p>
+            </section>
+            <section>
+                
             </section>
         </article>
     );

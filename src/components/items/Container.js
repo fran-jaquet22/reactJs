@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import Presentacional from "./Presentacional"
 import { useParams } from "react-router-dom"
-import { getProducts, getProductsByCategory} from "../asynkMock"
-import { db } from "./db/firebase"
+import { db } from "../db/firebase"
 import { getDocs, collection, query, where } from "firebase/firestore"
 
 
@@ -14,13 +13,15 @@ function Container() {
 
     useEffect(()=>{
 
-        /* const productosCollection = collection(db, "productos")
-        const filtroPorCategory = query(
-            productosCollection,
-            where("category","==","Merienda")
-        )
+        const productosCollection = collection(db, "productos")
 
+        let filtroPorCategory;
 
+        if(categoryId){ 
+            filtroPorCategory = query(productosCollection,where("category","==", `${categoryId}`)
+        )}else{
+            filtroPorCategory = productosCollection
+        }
 
         const laConsulta = getDocs(filtroPorCategory)
         laConsulta
@@ -35,19 +36,8 @@ function Container() {
                 })
                 .catch((error)=>{
                     console.log("dio mal", error)
-                }) */
-
-            
- 
-        const asyncFunc = categoryId ? getProductsByCategory : getProducts
+                })
         
-        asyncFunc(categoryId)
-        .then(res => {
-            setData(res)
-        }) 
-        .catch(error=>{
-            console.error(error)
-        })   
     }, [categoryId])
 
     return (

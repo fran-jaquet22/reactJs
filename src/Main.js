@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom"
-import Container from "./components/Container"
-import DetallesProducto from "./components/DetallesProducto"
-import Carrito from "./components/Carrito"
+import Container from "./components/items/Container"
+import DetallesProducto from "./components/items/DetallesProducto"
+import Carrito from "./components/carrito/Carrito"
 
 function Main(){
  

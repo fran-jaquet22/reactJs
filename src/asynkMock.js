@@ -1,4 +1,4 @@
-const products = [
+/* const products = [
     {
         id:'1',
         title: 'Alfajores de Maicena',
@@ -103,4 +103,4 @@ export const getProductsByCategory = (category) => {
         const filteredProducts = products.filter(product => product.category === category);
         resolve(filteredProducts);
     });
-};
+}; */

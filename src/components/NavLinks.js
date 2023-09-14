@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import CartWidget from "./CartWidget"
+import CartWidget from "./carrito/CartWidget"
 
 function NavLinks (){
     return(
