@@ -3,18 +3,18 @@ import Header from "./Header"
 import Main from "./Main"
 import Footer from "./Footer"
 import "../src/components/db/firebase"
-import MiProviderCarrito from "./components/contexto/Conexto";
+import {ProviderCarrito} from "./components/contexto/Conexto";
 
 
 function App() {
 
   return (
     <BrowserRouter>
-      <MiProviderCarrito>
+      <ProviderCarrito>
         <Header />
         <Main/>
         <Footer />
-      </MiProviderCarrito>
+      </ProviderCarrito>
     </BrowserRouter>
   );
 }
