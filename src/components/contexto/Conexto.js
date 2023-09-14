@@ -1,6 +1,6 @@
 import { createContext, useState } from "react"
 
-export const MiProviderCarrito = createContext({
+/* export const MiProviderCarrito = createContext({
     carrito : []
 })
 
@@ -37,19 +37,23 @@ return (
 )
 }
 
-
-/* const Provider = contextoCarrito.Provider
+export default MiProviderCarrito */
+export const contexto = createContext()
+const Provider = contexto.Provider
 
 const MiProviderCarrito = (props) => {
     const ValorDelContexto = {
         carrito : [],
     }
 
+    
+
     return(
         <Provider value={ValorDelContexto}>
             {props.children}
         </Provider>
     )
-} */
+}
 
 export default MiProviderCarrito
+
