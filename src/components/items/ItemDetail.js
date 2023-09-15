@@ -3,15 +3,15 @@ import { ContextoDelCarrito } from "../contexto/Conexto";
 import { Link } from "react-router-dom";
 import Contador from "../Contador";
 
-const ItemDetail = ({id, title, img, category, description, price }) => {
-    const {agregarItem, aumentarCantidad} = useContext(ContextoDelCarrito)
+const ItemDetail = ({id, title, img, category, description, price, stock}) => {
+    const {agregarItem} = useContext(ContextoDelCarrito)
     const [cantidadAgregada, setCantidadAgregada] = useState(0)
     const [precioTotal, setPrecioTotal] = useState(0)
    
 
     const agregado = (cantidad) => {
         setCantidadAgregada(cantidad)
-        setCantidadAgregada(cantidad + 1)
+        setPrecioTotal(cantidad * price)
     }
 
     const finalizarCompra = ()=>{
@@ -39,15 +39,24 @@ const ItemDetail = ({id, title, img, category, description, price }) => {
                 <p className="">Categoría: {category}</p>
                 <p className="">Descripción: {description}</p>
                 <p className="">Precio: ${price}</p>
-                <Link to= "/carrito">
-                <button onClick={agregado}>Agregar al carrito</button>
-                </Link>
+                <p className="">Stock: {stock}</p>
+                {cantidadAgregada > 0 && (
+                    <div>
+                        <p>cantidad seleccionada: {cantidadAgregada}</p>
+                        <p>precio total: ${precioTotal}</p>
+                    </div>
+                )}
             </section>
             <section>
-                <Contador/>
+                {cantidadAgregada > 0 ? (
+                        <Link to='/carrito'>
+                            <div onClick={finalizarCompra}>Agregar al Carrito</div>
+                        </Link>
+                    ) : <Contador inicial={1} stock={stock} agregar={agregado}/>}
             </section>
         </article>
     );
 }
 
 export default ItemDetail
+/* <Contador inicial={1} stock={stock} agregar={agregado}/> */

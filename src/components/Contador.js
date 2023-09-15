@@ -1,28 +1,38 @@
 import { useState } from "react"
 
-function Contador(props) {
-  let [contador, setContador] = useState(0)
+function Contador({stock, inicial, agregar}) {
+  let [cantidad, setCantidad] = useState(inicial)
 
-  const sumar = () => setContador(contador + 1) 
-  const restar = () => setContador(contador - 1) 
-  const vaciar = () => setContador(0) 
-  const confirmar = ()=> {
-    
+  const sumar = () => {
+    if(cantidad < stock){
+        setCantidad(cantidad ++)
+    }
+  } 
+  const restar = () => {
+    if(cantidad > 1){
+        setCantidad(cantidad -- )
+    }
+  } 
+  /* const vaciar = () => setCantidad(0)  */
+  const agregarAlCarrito = ()=> {
+    if(cantidad > 0){
+        agregar(cantidad)
+        setCantidad(inicial)
+    }
   }
-  if(contador == 0){
+  if(cantidad === 0){
     return(
         <div>
-            <p>Cantidad: {contador}</p>
+            <p>Cantidad: {cantidad}</p>
             <button onClick={sumar}>+</button>
         </div>
     )} else{
         return(
             <div>
-                <p>Cantidad: {contador}</p>
+                <p>Cantidad: {cantidad}</p>
                 <button onClick={sumar}>+</button>
                 <button onClick={restar}>-</button>
-                <button onClick={vaciar} className="m-2">Vaciar</button>
-                <button onClick={confirmar}>agregar al carrito</button>
+                <button onClick={agregarAlCarrito}>agregar al carrito</button>
             </div>
         )
     } 

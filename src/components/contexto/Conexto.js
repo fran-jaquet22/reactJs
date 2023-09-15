@@ -40,7 +40,7 @@ export const ProviderCarrito = ({children}) =>{
     const aumentarCantidad = (itemId) =>{
         const refrescarCarrito = carrito.map(producto => {
             if(producto.id === itemId){
-                return { ...producto, cantidad: producto.cantidad + 1}
+                return { ...producto, cantidad:producto.cantidad + 1}
             }
             return producto
         })
