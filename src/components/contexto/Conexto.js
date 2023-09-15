@@ -14,7 +14,7 @@ export const ProviderCarrito = ({children}) =>{
     const [carrito, setCarrito] = useState([])
     const [cantidadTotal, setCantidadTotal] = useState(0)
 
-    console.log(carrito)
+    /* console.log(carrito) */
 
     useEffect(()=>{
         const newCantidadTotal = carrito.reduce((total, producto) =>total + producto.cantidad, 0)

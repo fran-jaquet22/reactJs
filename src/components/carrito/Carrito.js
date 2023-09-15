@@ -1,17 +1,70 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 /* import { MiProviderCarrito } from "../contexto/Conexto" */
-import { db } from "../db/firebase"
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 import { ContextoDelCarrito } from "../contexto/Conexto"
-
-const ventasCollection = collection(db, "ventas")
+import { Link } from "react-router-dom"
+import CartItem from "../CartItem/CartItem"
+import { db } from "../db/firebase"
+import { collection } from "firebase/firestore"
 
 const Carrito = ({id, title, img, price, cantidad}) => {
-  const { removerItem, aumentarCantidad, disminuirCantidad } = useContext(ContextoDelCarrito)
+  const { carrito, removerItem, aumentarCantidad, disminuirCantidad, limpriarCarrito, cantidadTotal} = useContext(ContextoDelCarrito)
 
+  const total = parseFloat(carrito.reduce((acc, producto)=> acc + producto.price * producto.cantidad, 0))
+
+
+  if(cantidadTotal === 0){
+    return(
+      <div>
+        <h1>
+          no hay productos en el carrito
+        </h1>
+        <Link to="/">Volver a Home</Link>
+      </div>
+    )
+  }
 
   return(
-  <article className={``}>
+    <div>
+      {carrito.map(producto => (
+      <CartItem 
+      key={producto.id} 
+      {...producto}
+      aumentarCantidad={aumentarCantidad}
+      disminuirCantidad={disminuirCantidad}
+      />))}
+      
+
+
+      <div>
+        <h3>Total: ${total} </h3>
+      </div>
+    </div>
+  )
+    
+
+}
+
+export default Carrito
+
+
+
+/* function Carrito() {
+  const ValorActualDelContexto = useContext(MiProviderCarrito)
+
+  const onBuy = ()=> {
+
+    const ventasCollection = collection(db, "ventas")
+
+  }
+
+  return (
+    <div>
+      
+    </div>
+  )
+}*/
+
+/* <article className={``}>
       <div className="row g-0">
         <div className="col-md-4 col-sm-12">
           <div className="image-container">
@@ -46,26 +99,4 @@ const Carrito = ({id, title, img, price, cantidad}) => {
           </div>
         </div>
       </div>
-    </article>
-)
-}
-
-export default Carrito
-
-
-
-/* function Carrito() {
-  const ValorActualDelContexto = useContext(MiProviderCarrito)
-
-  const onBuy = ()=> {
-
-    const ventasCollection = collection(db, "ventas")
-
-  }
-
-  return (
-    <div>
-      
-    </div>
-  )
-}*/
+    </article> */

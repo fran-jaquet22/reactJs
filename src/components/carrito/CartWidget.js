@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { NavLink } from "react-router-dom"
-import { ContextoDelCarrito } from "../contexto/Conexto";
+import { ContextoDelCarrito, ProviderCarrito } from "../contexto/Conexto";
 
 /* const ValorActualDelContexto = useContext(ProviderCarrito */
 
@@ -12,7 +12,7 @@ const CartWidget = ()=>{
     return(
         <NavLink to="/carrito">
             <i className="material-icons">shopping_bag</i>
-            <span> {cantidadTotal} </span>
+            {cantidadTotal}
         </NavLink>
     )
 }

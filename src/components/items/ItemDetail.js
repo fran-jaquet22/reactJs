@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import { ContextoDelCarrito } from "../contexto/Conexto";
 import { Link } from "react-router-dom";
+import Contador from "../Contador";
 
 const ItemDetail = ({id, title, img, category, description, price }) => {
-    const {agregarItem} = useContext(ContextoDelCarrito)
+    const {agregarItem, aumentarCantidad} = useContext(ContextoDelCarrito)
     const [cantidadAgregada, setCantidadAgregada] = useState(0)
     const [precioTotal, setPrecioTotal] = useState(0)
-
+   
 
     const agregado = (cantidad) => {
         setCantidadAgregada(cantidad)
@@ -39,11 +40,11 @@ const ItemDetail = ({id, title, img, category, description, price }) => {
                 <p className="">Descripción: {description}</p>
                 <p className="">Precio: ${price}</p>
                 <Link to= "/carrito">
-                <button onClick={finalizarCompra}>Agregar al carrito</button>
+                <button onClick={agregado}>Agregar al carrito</button>
                 </Link>
             </section>
             <section>
-                
+                <Contador/>
             </section>
         </article>
     );
