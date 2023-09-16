@@ -3,7 +3,7 @@ import { ContextoDelCarrito } from "../contexto/Conexto"
 import { Link } from "react-router-dom"
 import CartItem from "../CartItem/CartItem"
 
-const Carrito = ({id, title, img, price, cantidad}) => {
+const Carrito = () => {
   const { carrito, aumentarCantidad, disminuirCantidad, limpiarCarrito, cantidadTotal} = useContext(ContextoDelCarrito)
 
   const total = parseFloat(carrito.reduce((acc, producto)=> acc + producto.price * producto.cantidad, 0))
@@ -30,12 +30,14 @@ const Carrito = ({id, title, img, price, cantidad}) => {
         disminuirCantidad={disminuirCantidad}
         />))}
         
-      <div>
-        <h3>Total: ${total} </h3>
-        <button onClick={()=>limpiarCarrito()}>Vaciar carrito</button>
+      <div className="flex justify-center my-2">
+        <h3> <strong>Total:</strong>&nbsp;${total} </h3>
       </div>
-      <div>
-        <Link to='/checkout'> Terminar Compra</Link>
+      <div className="flex justify-center mb-2">
+        <button className="mr-20 border-2 border-zinc-900 rounded-md px-4 py-2" onClick={()=>limpiarCarrito()}>Vaciar carrito</button>
+        <Link to='/checkout' className="ml-20 border-2 border-zinc-900 rounded-md px-4 py-2"> Confirmar Compra</Link>
+      </div>
+      <div className="flex justify-center">
       </div>
     </div>
   )
@@ -44,58 +46,3 @@ const Carrito = ({id, title, img, price, cantidad}) => {
 }
 
 export default Carrito
-
-
-
-/* function Carrito() {
-  const ValorActualDelContexto = useContext(MiProviderCarrito)
-
-  const onBuy = ()=> {
-
-    const ventasCollection = collection(db, "ventas")
-
-  }
-
-  return (
-    <div>
-      
-    </div>
-  )
-}*/
-
-/* <article className={``}>
-      <div className="row g-0">
-        <div className="col-md-4 col-sm-12">
-          <div className="image-container">
-            <img src={img} alt={title} className="img-fluid cart-item-img"/>
-          </div>
-        </div>
-        <div className="col-md-8 col-sm-12">
-          <div className="card-body">
-            <h2 className="card-title">{title}</h2>
-            <p className="card-text">${price}</p>
-            <div className="d-flex align-items-center">
-              <button
-                className={""}
-                onClick={() => disminuirCantidad(id)}
-              >
-                -
-              </button>
-              <p className="card-text">Cantidad: {cantidad}</p>
-              <button
-                className={""}
-                onClick={() => aumentarCantidad(id)}
-              >
-                +
-              </button>
-            </div>
-            <button
-              className={""}
-              onClick={() => removerItem(id)}
-            >
-              Eliminar
-            </button>
-          </div>
-        </div>
-      </div>
-    </article> */

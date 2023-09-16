@@ -24,33 +24,35 @@ const ItemDetail = ({id, title, img, category, description, price, stock}) => {
     }
 
     return (
-        <article className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 p-4 border-2 border-zinc-900 rounded-md card shadow-2xl p-4">
+        <article className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 2xl:grid-cols-1 gap-6 p-4 border-2 border-zinc-900 rounded-md card shadow-2xl p-4">
             <header>
-                <h2 className="h-30 p-5 text-center mt-16">{title}</h2>
+                <h2 className="h-30 p-5 text-center mt-4 text-4xl"> <strong>{title}</strong></h2>
             </header>
-            <picture className="">
+            <div className="flex justify-center ">
                 <img
                     src={img}
                     alt={title}
-                    className="h-60"
+                    className="h-72 rounded-lg"
                 />
-            </picture>
-            <section className="mt-14 pl-6">
-                <p className="">Categoría: {category}</p>
-                <p className="">Descripción: {description}</p>
-                <p className="">Precio: ${price}</p>
-                <p className="">Stock: {stock}</p>
+            </div>
+            <section className="mx-6 pl-6">
+                <div>
+                    <p className="flex justify-center"> <strong>Categoría:</strong> {category}</p>
+                    <p className="flex justify-center"><strong>Descripción:</strong> {description}</p>
+                    <p className="flex justify-center"><strong>Precio:</strong> ${price}</p>
+                    <p className="flex justify-center"><strong>Stock:</strong> {stock}</p> 
+                </div>
                 {cantidadAgregada > 0 && (
-                    <div>
-                        <p>cantidad seleccionada: {cantidadAgregada}</p>
-                        <p>precio total: ${precioTotal}</p>
+                    <div className="">
+                        <p className="flex justify-center"><strong>cantidad seleccionada:</strong> &nbsp; {cantidadAgregada}</p>
+                        <p className="flex justify-center"><strong>precio total:</strong> &nbsp; ${precioTotal}</p>
                     </div>
                 )}
             </section>
-            <section>
+            <section className="mt-5 mb-5">
                 {cantidadAgregada > 0 ? (
                         <Link to='/carrito'>
-                            <div onClick={finalizarCompra}>Agregar al Carrito</div>
+                            <div className="flex justify-center font-bold border-2 border-zinc-900 rounded-md px-4 py-2" onClick={finalizarCompra}>Finalizar compra</div>
                         </Link>
                     ) : <Contador inicial={1} stock={stock} agregar={agregado}/>}
             </section>

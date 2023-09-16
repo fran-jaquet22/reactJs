@@ -20,40 +20,42 @@ const CheckoutForm = ({ confirmado }) => {
 
     return (
         <form onSubmit={enviar} >
-          <div >
+          <div className="flex justify-center mt-">
             <label htmlFor="name">Nombre:</label>
             <input
               type="text"
-              className={`m-2`}
+              className=" ml-2 border-solid border-4 border-pink-900 rounded text-black"
               id="nombre"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               required
             />
           </div>
-          <div className={`m-2`}>
+          <div className="flex justify-center mt-4">
             <label htmlFor="phone">Teléfono:</label>
             <input
               type="tel"
-              className={`m-2`}
+              className=" ml-2 border-solid border-4 border-pink-900 rounded text-black"
               id="tel"
               value={tel}
               onChange={(e) => setTel(e.target.value)}
               required
             />
           </div>
-          <div className={`m-2`}>
+          <div className="flex justify-center mt-4">
             <label htmlFor="email">Correo Electrónico:</label>
             <input
               type="email"
-              className={`m-2`}
+              className=" ml-2 border-solid border-4 border-pink-900 rounded text-black"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
-          <button type="submit" className={`m-2`}>Confirmar Orden</button>
+          <div className="flex justify-center mt-6">
+            <button type="submit" className="border-2 border-zinc-900 rounded-md px-4 py-2">Confirmar Orden</button>
+          </div>
         </form>
       );
 };

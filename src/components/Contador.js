@@ -5,15 +5,14 @@ function Contador({stock, inicial, agregar}) {
 
   const sumar = () => {
     if(cantidad < stock){
-        setCantidad(cantidad ++)
+        setCantidad(cantidad + 1)
     }
   } 
   const restar = () => {
     if(cantidad > 1){
-        setCantidad(cantidad -- )
+        setCantidad(cantidad - 1 )
     }
   } 
-  /* const vaciar = () => setCantidad(0)  */
   const agregarAlCarrito = ()=> {
     if(cantidad > 0){
         agregar(cantidad)
@@ -22,17 +21,21 @@ function Contador({stock, inicial, agregar}) {
   }
   if(cantidad === 0){
     return(
-        <div>
-            <p>Cantidad: {cantidad}</p>
-            <button onClick={sumar}>+</button>
+        <div className="">
+            <p >Cantidad: {cantidad}</p>
+            <button className="mb-2 border-2 border-zinc-900 rounded-md " onClick={sumar}>+</button>
         </div>
     )} else{
         return(
             <div>
-                <p>Cantidad: {cantidad}</p>
-                <button onClick={sumar}>+</button>
-                <button onClick={restar}>-</button>
-                <button onClick={agregarAlCarrito}>agregar al carrito</button>
+                <p className="flex justify-center mb-2">Cantidad: {cantidad}</p>
+                <div className="flex justify-center">
+                    <button className="pr-4 pl-4 mr-2 mb-2 border-2 border-zinc-900 rounded-md " onClick={sumar}>+</button>
+                    <button className="pr-4 pl-4 mb-2 border-2 border-zinc-900 rounded-md " onClick={restar}>-</button>
+                </div>
+                <div className="flex justify-center">
+                    <button className="p-4 mr- border-2 border-zinc-900 rounded-md" onClick={agregarAlCarrito}>agregar al carrito</button>
+                </div>
             </div>
         )
     } 

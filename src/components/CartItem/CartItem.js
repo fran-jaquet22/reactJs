@@ -7,42 +7,41 @@ const CartItem= ({id, title, img, price, cantidad}) =>{
 
     return (
         <article>
-            <div>
-                <img src={img} alt="{title}" />
+            <div className="py-6">
+                <h2 className="flex justify-center">{title}</h2>
             </div>
 
-            <div>
-                <h2>{title}</h2>
+            <div className="pb-6 flex justify-center">
+                <img className="h-60" src={img} alt="{title}" />
+            </div>
+
+            <div className="flex justify-center pb-4">
                 <p>${price}</p>
             </div>
 
             <div>
-                <button onClick={()=>{disminuirCantidad(id)}}>
-                    -
-                </button>
-                <p>
-                    cantidad: {cantidad}
+                <p className="flex justify-center mb-2 mr-2">
+                   <strong>cantidad:</strong>&nbsp;{cantidad}
                 </p>
-
-                <button onClick={()=>{aumentarCantidad(id)}}>
-                    +
-                </button>
-
-                <button onClick={()=>{removerItem(id)}}>
-                    Eliminar
-                </button>
-
+                <div>
+                    <div className="flex justify-center " >
+                        <button className="flex justify-center pr-4 pl-4 mr-2 mb-2 border-2 border-zinc-900 rounded-md" onClick={()=>{disminuirCantidad(id)}}>
+                            -
+                        </button> 
+                        <button className="flex justify-center pr-4 pl-4 mr-2 mb-2 border-2 border-zinc-900 rounded-md" onClick={()=>{aumentarCantidad(id)}}>
+                            +
+                        </button> 
+                    </div>
+                    <div className="flex justify-center">
+                        <button className="flex justify-center pr-4 pl-4 mr-2 mb-2 border-2 border-zinc-900 rounded-md" onClick={()=>{removerItem(id)}}>
+                            Eliminar
+                        </button>   
+                    </div>
+                </div>                
             </div>
         </article>
     )
 
 }
-  
-
-
-
-
-
-
 
 export default CartItem
