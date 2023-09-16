@@ -34,6 +34,9 @@ const Carrito = ({id, title, img, price, cantidad}) => {
         <h3>Total: ${total} </h3>
         <button onClick={()=>limpiarCarrito()}>Vaciar carrito</button>
       </div>
+      <div>
+        <Link to='/checkout'> Terminar Compra</Link>
+      </div>
     </div>
   )
     

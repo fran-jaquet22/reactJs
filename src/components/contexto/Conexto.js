@@ -4,7 +4,7 @@ export const ContextoDelCarrito = createContext({
     carrito: [],
     agregarItem: ()=>{},
     removerItem: ()=>{},
-    limpriarCarrito: ()=>{},
+    limpiarCarrito: ()=>{},
     aumentarCantidad: ()=>{},
     disminuirCantidad: ()=>{},
     cantidadTotal: 0
