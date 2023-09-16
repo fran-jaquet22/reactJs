@@ -1,37 +1,34 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { ContextoDelCarrito } from "../contexto/Conexto"
-import { db } from "../db/firebase"
-import { getDocs, collection } from "firebase/firestore"
 
 
-const CartItem= () =>{
+const CartItem= ({id, title, img, price, cantidad}) =>{
     const { removerItem, aumentarCantidad, disminuirCantidad} = useContext(ContextoDelCarrito)
-    const productosCollection = collection(db, "productos")
 
     return (
         <article>
             <div>
-                <img src={productosCollection.img} alt={productosCollection.title} />
+                <img src={img} alt="{title}" />
             </div>
 
             <div>
-                <h2>{productosCollection.tilte}</h2>
-                <p>${productosCollection.price}</p>
+                <h2>{title}</h2>
+                <p>${price}</p>
             </div>
 
             <div>
-                <button onClick={()=>{disminuirCantidad(productosCollection.id)}}>
+                <button onClick={()=>{disminuirCantidad(id)}}>
                     -
                 </button>
                 <p>
-                    cantidad: {}
+                    cantidad: {cantidad}
                 </p>
 
-                <button onClick={()=>{aumentarCantidad(productosCollection.id)}}>
+                <button onClick={()=>{aumentarCantidad(id)}}>
                     +
                 </button>
 
-                <button onClick={()=>{removerItem(productosCollection.id)}}>
+                <button onClick={()=>{removerItem(id)}}>
                     Eliminar
                 </button>
 

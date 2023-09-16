@@ -1,13 +1,10 @@
-import { useContext, useState } from "react"
-/* import { MiProviderCarrito } from "../contexto/Conexto" */
+import { useContext } from "react"
 import { ContextoDelCarrito } from "../contexto/Conexto"
 import { Link } from "react-router-dom"
 import CartItem from "../CartItem/CartItem"
-import { db } from "../db/firebase"
-import { collection } from "firebase/firestore"
 
 const Carrito = ({id, title, img, price, cantidad}) => {
-  const { carrito, removerItem, aumentarCantidad, disminuirCantidad, limpriarCarrito, cantidadTotal} = useContext(ContextoDelCarrito)
+  const { carrito, aumentarCantidad, disminuirCantidad, limpiarCarrito, cantidadTotal} = useContext(ContextoDelCarrito)
 
   const total = parseFloat(carrito.reduce((acc, producto)=> acc + producto.price * producto.cantidad, 0))
 
@@ -26,17 +23,16 @@ const Carrito = ({id, title, img, price, cantidad}) => {
   return(
     <div>
       {carrito.map(producto => (
-      <CartItem 
-      key={producto.id} 
-      {...producto}
-      aumentarCantidad={aumentarCantidad}
-      disminuirCantidad={disminuirCantidad}
-      />))}
-      
-
-
+        <CartItem 
+        key={producto.id} 
+        {...producto}
+        aumentarCantidad={aumentarCantidad}
+        disminuirCantidad={disminuirCantidad}
+        />))}
+        
       <div>
         <h3>Total: ${total} </h3>
+        <button onClick={()=>limpiarCarrito()}>Vaciar carrito</button>
       </div>
     </div>
   )
