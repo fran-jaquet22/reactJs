@@ -1,14 +1,16 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
+import { REACT_APP_apiKey, REACT_APP_storageBucket, REACT_APP_appId, REACT_APP_authDomain, REACT_APP_projectId, REACT_APP_messagingSenderId, REACT_APP_databaseURL } from "../../configFirebase";
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBXalPvvmbRxn3T3KjSLgpnbXnQjUdQ0EQ",
-  authDomain: "listalara-fc6f6.firebaseapp.com",
-  databaseURL: "https://listalara-fc6f6-default-rtdb.firebaseio.com",
-  projectId: "listalara-fc6f6",
-  storageBucket: "listalara-fc6f6.appspot.com",
-  messagingSenderId: "399281758388",
-  appId: "1:399281758388:web:9fc50a28982d2ab3f037e1"
+  apiKey: REACT_APP_apiKey,
+  authDomain: REACT_APP_authDomain,
+  databaseURL: REACT_APP_databaseURL,
+  projectId: REACT_APP_projectId,
+  storageBucket: REACT_APP_storageBucket,
+  messagingSenderId: REACT_APP_messagingSenderId,
+  appId: REACT_APP_appId
 };
 
 const app = initializeApp(firebaseConfig);
