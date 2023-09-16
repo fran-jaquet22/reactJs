@@ -6,17 +6,17 @@ const CartItem= ({id, title, img, price, cantidad}) =>{
     const { removerItem, aumentarCantidad, disminuirCantidad} = useContext(ContextoDelCarrito)
 
     return (
-        <article>
+        <article className="border-2 border-zinc-900 rounded-md mb-2 mx-96">
             <div className="py-6">
-                <h2 className="flex justify-center">{title}</h2>
+                <h2 className="flex justify-center font-bold text-4xl">{title}</h2>
             </div>
 
             <div className="pb-6 flex justify-center">
-                <img className="h-60" src={img} alt="{title}" />
+                <img className="h-60 rounded-lg" src={img} alt="{title}" />
             </div>
 
             <div className="flex justify-center pb-4">
-                <p>${price}</p>
+                <p> <strong>Precio por unidad:</strong> ${price}</p>
             </div>
 
             <div>
@@ -33,7 +33,7 @@ const CartItem= ({id, title, img, price, cantidad}) =>{
                         </button> 
                     </div>
                     <div className="flex justify-center">
-                        <button className="flex justify-center pr-4 pl-4 mr-2 mb-2 border-2 border-zinc-900 rounded-md" onClick={()=>{removerItem(id)}}>
+                        <button className="flex justify-center pr-4 pl-4 mr-2 mb-4 border-2 border-zinc-900 rounded-md" onClick={()=>{removerItem(id)}}>
                             Eliminar
                         </button>   
                     </div>

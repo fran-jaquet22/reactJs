@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 
 const CheckoutForm = ({ confirmado }) => {
-    const [nombre, setNombre] = useState("");
-    const [email, setEmail] = useState("");
-    const [tel, setTel] = useState("");
+    const [nombre, setNombre] = useState("")
+    const [email, setEmail] = useState("")
+    const [tel, setTel] = useState("")
 
     const enviar = (e) => {
         e.preventDefault();
@@ -20,8 +20,8 @@ const CheckoutForm = ({ confirmado }) => {
 
     return (
         <form onSubmit={enviar} >
-          <div className="flex justify-center mt-">
-            <label htmlFor="name">Nombre:</label>
+          <div className="flex justify-center">
+            <label htmlFor="name" className="italic text-2xl">Nombre y Apellido:</label>
             <input
               type="text"
               className=" ml-2 border-solid border-4 border-pink-900 rounded text-black"
@@ -32,9 +32,9 @@ const CheckoutForm = ({ confirmado }) => {
             />
           </div>
           <div className="flex justify-center mt-4">
-            <label htmlFor="phone">Teléfono:</label>
+            <label htmlFor="phone" className="italic text-2xl">Teléfono:</label>
             <input
-              type="tel"
+              type="number"
               className=" ml-2 border-solid border-4 border-pink-900 rounded text-black"
               id="tel"
               value={tel}
@@ -43,7 +43,7 @@ const CheckoutForm = ({ confirmado }) => {
             />
           </div>
           <div className="flex justify-center mt-4">
-            <label htmlFor="email">Correo Electrónico:</label>
+            <label htmlFor="email" className="italic text-2xl">Correo Electrónico:</label>
             <input
               type="email"
               className=" ml-2 border-solid border-4 border-pink-900 rounded text-black"

@@ -11,11 +11,13 @@ const Carrito = () => {
 
   if(cantidadTotal === 0){
     return(
-      <div>
-        <h1>
-          no hay productos en el carrito
+      <div className="mt-64">
+        <h1 className="justify-center flex text-3xl mb-6">
+          El Carrito esta vacio
         </h1>
-        <Link to="/">Volver a Home</Link>
+        <div className="flex justify-center">
+          <Link className="justify-center flex mt-2 text-3xl bottom-0 py-4 px-4 border-black border-2 rounded hover:bg-pink-950" to="/">Ver Productos...</Link>
+        </div>
       </div>
     )
   }
